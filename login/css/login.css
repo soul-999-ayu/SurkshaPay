@@ -1,0 +1,100 @@
+/* General body styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+/* Container for the background image and centering */
+.login-container {
+    /* Set the background image */
+    background-image: url('../../res/img/background.jpg');
+    
+    /* Ensure the image covers the whole screen */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Use Flexbox to center the login box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The blurred box in the middle */
+.login-box {
+    /* Background with transparency */
+    background: rgba(0, 0, 0, 0.25);
+    
+    /* The blur effect */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* For Safari support */
+    
+    /* Styling */
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 60%; /* Responsive width */
+    max-width: 300px; /* Maximum width for larger screens */
+}
+
+.login-box h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+/* Styling for input fields and labels */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+/* Login button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    font-size: 12px;
+}
+
+a {
+    color: rgb(19, 168, 236); text-decoration: none;
+}
+
+#forgot, #forgot2, #forgot3 {
+    display: none;
+}
