@@ -1,10 +1,136 @@
 <!DOCTYPE html>
-<html>
-<body>
-    <p>Redirecting you to the login page...</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurakshaPay - Secure & Instant</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Style for the blurred backdrop effect */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center bg-fixed bg-no-repeat min-h-screen text-white flex items-center justify-center p-4" style="background-image: url('res/img/background.jpg');">
+
+    <!-- Main Content Container with Glass Effect -->
+    <div class="glass-effect w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden">
+        <div class="p-6 md:p-10">
+            <!-- ================================================================= -->
+            <!-- HEADER SECTION: Now fully visible and responsive.               -->
+            <!-- ================================================================= -->
+            <header class="flex justify-between items-center pb-8 border-b border-white/10">
+                <!-- Logo/Brand Name -->
+                <a href="#" class="text-2xl font-bold tracking-tight">SurakshaPay</a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="flex items-center space-x-4 md:space-x-8">
+                    <a href="#" class="hidden sm:block text-gray-300 hover:text-white transition-colors duration-300">Generate Code</a>
+                    <!-- HEADER "JOIN CHATROOM" BUTTON -->
+                    <button id="joinChatroomHeader" class="text-gray-300 hover:text-white transition-colors duration-300">Join Chatroom</button>
+                    <!-- Profile Icon -->
+                    <a href="login/login.html" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                </nav>
+            </header>
+
+            <!-- Main Body Content -->
+            <main class="text-center py-16 md:py-24">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-4">
+                    Secure. Anonymous. Instant.
+                </h1>
+                <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl mb-10">
+                    Welcome to SurakshaPay, the revolutionary platform for creating and joining secure, private chatrooms. Generate a unique, one-time code and share it to connect instantly and anonymously.
+                </p>
+                
+                <!-- ================================================================= -->
+                <!-- ACTION BUTTONS SECTION: Clearly visible in the main body.     -->
+                <!-- ================================================================= -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg">
+                        Generate Code
+                    </button>
+                    <!-- BODY "JOIN CHATROOM" BUTTON -->
+                    <button id="joinChatroomBody" class="w-full sm:w-auto glass-effect hover:bg-white/10 transition-all duration-300 text-white font-semibold py-3 px-8 rounded-lg text-lg">
+                        Join Chatroom
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Popup Modal for Joining Chatroom -->
+    <div id="popupModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-effect rounded-2xl shadow-2xl w-full max-w-sm p-8 text-center relative">
+            <!-- Close Button -->
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-300 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            
+            <h2 class="text-2xl font-bold mb-4">Enter Chatroom Code</h2>
+            <p class="text-gray-300 mb-6">Please enter the code you received to join the secure chatroom.</p>
+            
+            <form>
+                <input type="text" placeholder="Enter code here..." class="w-full bg-white/10 border-none rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none mb-4 text-center text-lg tracking-widest">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg">
+                    Join Now
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // This will navigate the current tab to the new page
-        window.location.href = "login/login.html";
+        // Get all necessary elements from the DOM
+        const modal = document.getElementById('popupModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const joinChatroomHeaderBtn = document.getElementById('joinChatroomHeader');
+        const joinChatroomBodyBtn = document.getElementById('joinChatroomBody');
+
+        // Function to open the modal
+        const openModal = () => {
+            modal.classList.remove('hidden');
+        };
+
+        // Function to close the modal
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        };
+
+        // Add event listeners to both "Join Chatroom" buttons
+        joinChatroomHeaderBtn.addEventListener('click', openModal);
+        joinChatroomBodyBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Allow closing the modal by clicking on the background overlay
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Prevent closing modal when clicking inside the content area
+        modal.querySelector('div').addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
     </script>
 </body>
 </html>
+
