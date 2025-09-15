@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SurakshaPay Login</title>
+    <title>SurakshaPay Signup</title>
     <link rel="stylesheet" href="css/login.css">
+    <style>
+        .success-message {
+            background-color: rgb(102, 255, 102); /* Light green */
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
-        <div class="login-box">
+        <div id="signup-box" class="login-box">
             <h1>SurakshaPay</h1>
-            <form>
+            <div id="email-error" style="display: none; background-color: rgb(255, 102, 102); padding: 5px; border-radius: 10px;">Error</div>
+            <br>
+            <form id="signup-form">
                 <div class="input-group">
                     <label for="name">Full name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
                 <div class="input-group">
                     <label for="phone">Phone number</label>
-                    <input type="number" id="number" name="number" placeholder="Enter your phone number" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                 </div>
                 <div class="input-group">
                     <label for="email">Email</label>
@@ -28,11 +41,32 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
                 <button type="submit">Signup</button>
-                <div>
+                <div class="form-link">
                     <p><a href="login.html">Already have an account? Login here!</a></p>
                 </div>
             </form>
         </div>
+
+        <div id="otp-box" class="login-box" style="display: none;">
+            <div id="otp-error" style="display: none; background-color: rgb(255, 102, 102); padding: 5px; border-radius: 10px;">Error</div>
+            <h1>OTP Verification</h1>
+            <form id="otp-form">
+                <div class="input-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="text" id="otp" name="otp" placeholder="Enter your 6 digit otp" required>
+                </div>
+                <button type="submit">Verify</button>
+            </form>
+        </div>
+
+        <div id="success-box" class="login-box" style="display: none;">
+            <h1>Success!</h1>
+            <div id="success-message" class="success-message"></div>
+            <p>Redirecting to login page...</p>
+        </div>
+
     </div>
+
+    <script src="js/signup.js"></script>
 </body>
 </html>

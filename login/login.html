@@ -10,8 +10,8 @@
     <div class="login-container">
         <div class="login-box" id="login">
             <h1>SurakshaPay</h1>
-            <form>
-                <div class="input-group">
+            <div id="login-error" style="display: none; background-color: rgb(255, 102, 102); color: white; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 1rem;"></div>
+            <form id="login-form"> <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
@@ -20,7 +20,7 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
                 <div class="input-group">
-                    <p><a onclick="toForgotPass()">Forgot username or password?</a></p>
+                    <p><a href="#" onclick="toForgotPass(); return false;">Forgot username or password?</a></p>
                 </div>
                 <button type="submit">Login</button>
                 <div>
@@ -29,54 +29,49 @@
             </form>
         </div>
 
-        <div class="login-box" id="forgot">
-            <h1>SurakshaPay</h1>
-            <form>
-                <div class="input-group">
-                    <label for="email">Email</label>
+        <div class="login-box" id="forgot" style="display: none;"> <h1>Reset Password</h1>
+            <div id="forgot-email-error" style="display: none; background-color: rgb(255, 102, 102); color: white; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 1rem;"></div>
+            <form id="forgot-email-form"> <div class="input-group">
+                    <label for="emailForgot">Email</label>
                     <input type="email" id="emailForgot" name="emailForgot" placeholder="Enter your email" required>
                 </div>
-                <button onclick="sendOTP()">Send OTP</button>
+                <button type="submit">Send OTP</button>
                 <div>
-                    <p><a onclick="backToLogin('p1')">Recalled the password? Login here!</a></p>
+                    <p><a href="#" onclick="backToLogin(); return false;">Recalled the password? Login here!</a></p>
                 </div>
             </form>
         </div>
 
-        <div class="login-box" id="forgot2">
-            <h1>SurakshaPay</h1>
-            <form>
-                <div class="input-group">
+        <div class="login-box" id="forgot2" style="display: none;"> <h1>Verify OTP</h1>
+            <div id="forgot-otp-error" style="display: none; background-color: rgb(255, 102, 102); color: white; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 1rem;"></div>
+            <form id="forgot-otp-form"> <div class="input-group">
                     <label for="otp">OTP</label>
                     <input type="number" id="otp" name="otp" placeholder="Enter your otp" required>
                 </div>
-                <button onclick="changePass()">Verify</button>
+                <button type="submit">Verify</button>
                 <div>
-                    <p><a onclick="backToLogin('p2')">Recalled the password? Login here!</a></p>
+                    <p><a href="#" onclick="backToLogin(); return false;">Recalled the password? Login here!</a></p>
                 </div>
             </form>
         </div>
 
-        <div class="login-box" id="forgot3">
-            <h1>SurakshaPay</h1>
-            <form>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <div class="login-box" id="forgot3" style="display: none;"> <h1>Set New Password</h1>
+            <div id="forgot-pass-error" style="display: none; background-color: rgb(255, 102, 102); color: white; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 1rem;"></div>
+            <form id="forgot-pass-form"> <div class="input-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" placeholder="Enter your new password" required>
                 </div>
                 <div class="input-group">
-                    <label for="confpassword">Confirm password</label>
-                    <input type="password" id="confpassword" name="confpassword" placeholder="Confirm your password" required>
+                    <label for="confPassword">Confirm password</label>
+                    <input type="password" id="confPassword" name="confPassword" placeholder="Confirm your password" required>
                 </div>
-                <button >Change Password</button>
+                <button type="submit">Change Password</button>
                 <div>
-                    <p><a onclick="backToLogin('p3')">Recalled the password? Login here!</a></p>
+                    <p><a href="#" onclick="backToLogin(); return false;">Recalled the password? Login here!</a></p>
                 </div>
             </form>
         </div>
-
     </div>
-
     <script src="js/login.js"></script>
 </body>
 </html>
